@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "abtools"
+version = "0.1.0"
+description = ""
+authors = ["yoshinaga0106 <t.yoshinaga0106@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+scipy = "^1.9.3"
+streamlit = "^1.15.0"
+statsmodels = "^0.13.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
