@@ -2,9 +2,9 @@ import streamlit as st
 from PIL import Image
 
 # title
-st.title("超高性能人工知能C-3PO")
-st.write("人工知能のC-3POがサンプルサイズを計算したりABテストの結果を検定してくれます")
+st.title("AB testing tools")
+st.write("Calculate sample size / Statistical test (under constructions.)")
 
 # image
-image = Image.open('./nakamura/images/c3po.jpeg')
-st.image(image, caption='人工知能',use_column_width=True)
+image = Image.open('./nakamura/images/ab.jpeg')
+st.image(image, use_column_width=True)
