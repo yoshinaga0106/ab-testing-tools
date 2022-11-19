@@ -5,5 +5,5 @@ st.title("AB Testing")
 st.write("Under Construnctions")
 
 # image
-image = Image.open('./nakamura/images/underconstuctions.jpeg')
+image = Image.open('./abtools/images/underconstuctions.jpeg')
 st.image(image, use_column_width=True)
