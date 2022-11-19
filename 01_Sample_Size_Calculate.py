@@ -119,8 +119,8 @@ def get_table(selected_filters: str, mandatories: dict, options: dict):
 
 def main() -> None:
     
-    st.title("超高性能人工知能なかむら君1号: Sample Size Calculator")   
-    st.write("人工知能のなかむら君がサンプルサイズを計算してくれます")
+    st.title("Sample Size Calculator")   
+    st.write("Sample size calculation tool for the difference of (avarage value | ratio).")
 
     st.subheader("1. Testing methods")
     selected_filters = st.selectbox(
