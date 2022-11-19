@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from nakamura.stats.sample_size import calculate_sample_size_avg, calculate_sample_size_ratio
+from abtools.stats.sample_size import calculate_sample_size_avg, calculate_sample_size_ratio
 
 def get_required_inputs(selected_filters: str):
 
