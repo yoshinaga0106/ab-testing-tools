@@ -6,7 +6,7 @@ authors = ["yoshinaga0106 <t.yoshinaga0106@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.9,<3.9.7 || >3.9.7,<4.0"
 scipy = "^1.9.3"
 streamlit = "^1.15.0"
 statsmodels = "^0.13.5"
