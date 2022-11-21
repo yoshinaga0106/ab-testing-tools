@@ -215,6 +215,7 @@ def main() -> None:
         label="Choose a approach (Frequentist is recommended)",
         options=["Frequentist", "Bayesian"],
     )
+    options = get_options(approach=approach)
 
     # Statistical test
     st.subheader("4. Test")
