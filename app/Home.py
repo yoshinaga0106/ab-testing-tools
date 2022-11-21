@@ -37,6 +37,7 @@ def main() -> None:
         switch_page(page_names_to_funcs.get(choose), HOME_SCRIPT_NAME)
 
     # image
+    # if you want to open to streamlit cloud, use ./app/images/ab.png, otherwise use ./images/ab.png
     image = Image.open("./app/images/ab.png")
     st.image(image, use_column_width=True)
 
