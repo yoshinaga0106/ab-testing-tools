@@ -18,13 +18,12 @@ def get_required_inputs(selected_filters: str):
         # default values
         default_values = AvgData().get_default_inputs()
         # input
-        column_1st, column_2nd, column_3rd, column_4th = st.columns(4)
-        avg = column_1st.number_input("Average value (daily)", value=default_values.get("avg"))
-        var = column_2nd.number_input("Variance (daily)", value=default_values.get("var"))
-        sample = column_3rd.number_input("\# of sample (daily)", value=default_values.get("sample"))
-        group = column_4th.number_input("\# of test groups", value=default_values.get("group"))
+        col1, col2, col3 = st.columns(3)
+        avg = col1.number_input("Average value (daily)", value=default_values.get("avg"))
+        var = col2.number_input("Variance (daily)", value=default_values.get("var"))
+        sample = col3.number_input("\# of sample (daily)", value=default_values.get("sample"))
 
-        res = AvgData(avg=avg, var=var, sample=sample, group=group).get_default_inputs()
+        res = AvgData(avg=avg, var=var, sample=sample).get_default_inputs()
 
     elif selected_filters == "The difference of ratio":
 
@@ -34,9 +33,8 @@ def get_required_inputs(selected_filters: str):
         col1, col2, col3 = st.columns(3)
         rate = col1.number_input("Rate (daily)", value=default_values.get("rate"))
         sample = col2.number_input("\# of sample (daily)", value=default_values.get("sample"))
-        group = col3.number_input("\# of test groups", value=default_values.get("group"))
 
-        res = RatioData(rate=rate, sample=sample, group=group).get_default_inputs()
+        res = RatioData(rate=rate, sample=sample).get_default_inputs()
 
     else:
         raise ValueError
@@ -51,11 +49,13 @@ def get_options(is_cheched: bool):
 
     if is_cheched:
 
-        col1, col2, col3 = st.columns(3)
+        col1, col2, col3, col4 = st.columns(4)
         alpha = col1.number_input("Alpha", min_value=0.0, max_value=1.0, value=default_values.get("alpha"))
         power = col2.number_input("Power (1 - beta)", min_value=0.0, max_value=1.0, value=default_values.get("power"))
+        ## group
+        group = col3.number_input("\# of test groups", value=default_values.get("group"))
         ## one-sided or two-sided
-        alternative = col3.selectbox("One-tailed / Two-tailed Test", ("two-sided", "larger", "smaller"))
+        alternative = col4.selectbox("One-tailed / Two-tailed Test", ("two-sided", "larger", "smaller"))
         ## lift
         lifts = st.multiselect(
             "Please select numbers by lift",
@@ -63,7 +63,7 @@ def get_options(is_cheched: bool):
             default=default_values.get("lifts"),
         )
 
-        res = BaseData(alpha=alpha, power=power, alternative=alternative, lifts=lifts).get_options()
+        res = BaseData(alpha=alpha, power=power, group=group, alternative=alternative, lifts=lifts).get_options()
 
     return res
 
@@ -91,7 +91,7 @@ def get_table(selected_filters: str, mandatories: dict, options: dict):
                 alpha=options.get("alpha"),
                 lift=lift,
                 power=options.get("power"),
-                group=mandatories.get("group"),
+                group=options.get("group"),
                 alternative=options.get("alternative"),
             )
             n = ssa.calc_sample_size()
@@ -101,7 +101,7 @@ def get_table(selected_filters: str, mandatories: dict, options: dict):
                     "lift": lift,
                     "target": (1 + lift) * mandatories.get("avg"),
                     "sample size by group": round(n),
-                    "days": mandatories.get("group") * n / mandatories.get("sample"),
+                    "days": options.get("group") * n / mandatories.get("sample"),
                     "rate by group (1 week)": n / (7 * mandatories.get("sample")),
                     "rate by group (2 week)": n / (14 * mandatories.get("sample")),
                 },
@@ -115,7 +115,7 @@ def get_table(selected_filters: str, mandatories: dict, options: dict):
                 alpha=options.get("alpha"),
                 lift=lift,
                 power=options.get("power"),
-                group=mandatories.get("group"),
+                group=options.get("group"),
                 alternative=options.get("alternative"),
             )
             n = ssr.calc_sample_size()
@@ -125,7 +125,7 @@ def get_table(selected_filters: str, mandatories: dict, options: dict):
                     "lift": lift,
                     "target": (1 + lift) * mandatories.get("rate"),
                     "sample size by group": round(n),
-                    "days": mandatories.get("group") * n / mandatories.get("sample"),
+                    "days": options.get("group") * n / mandatories.get("sample"),
                     "rate by group (1 week)": n / (7 * mandatories.get("sample")),
                     "rate by group (2 week)": n / (14 * mandatories.get("sample")),
                 },
