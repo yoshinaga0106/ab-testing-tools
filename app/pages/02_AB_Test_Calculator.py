@@ -67,7 +67,7 @@ def main() -> None:
         tbl = tbl.append(res, ignore_index=True)
 
     # show table
-    st.dataframe(tbl)
+    st.dataframe(tbl, width = 600)
 
     # set approach (frequentist / bayesian)
     st.subheader("3. Set Approaches")
