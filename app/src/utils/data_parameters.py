@@ -11,7 +11,7 @@ class BaseData:
     lifts: List[float] = field(default_factory=list)
 
     def get_options(self):
-        return {"alpha": self.alpha, "power": self.power, "alternative": self.alternative, "lifts": self.lifts}
+        return {"alpha": self.alpha, "power": self.power, "group": self.group, "alternative": self.alternative, "lifts": self.lifts}
 
 
 @dataclass
