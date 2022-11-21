@@ -146,7 +146,7 @@ def main() -> None:
     st.subheader("1. Testing Family")
     selected_filters = st.selectbox(
         "Select which testing family to enable",
-        ["The differece of ratio", "The differece of average value"],
+        ["The difference of ratio", "The difference of average value"],
     )
     st.subheader("2. Set input parameters")
     # mandatory
