@@ -37,7 +37,7 @@ def main() -> None:
         switch_page(page_names_to_funcs.get(choose), HOME_SCRIPT_NAME)
 
     # image
-    image = Image.open("./images/ab.png")
+    image = Image.open("/app/images/ab.png/ab.png")
     st.image(image, use_column_width=True)
 
 
