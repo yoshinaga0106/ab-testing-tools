@@ -14,14 +14,14 @@ def main() -> None:
     st.write("Validate the result of AB test using testing of statistical hypothesis.")
 
     # testing methods
-    st.subheader("1. Testing family")
+    st.subheader("1. Testing Family")
     selected_filters = st.selectbox(
         "Select which testing family to enable",
         ["The differece of ratio", "The differece of average value"],
     )
 
     # set input data
-    st.subheader("2. Set input paramters")
+    st.subheader("2. Set Input Paramters")
 
     # table
     tbl = pd.DataFrame(columns=["group", "yes", "no"])
@@ -70,7 +70,7 @@ def main() -> None:
     st.dataframe(tbl)
 
     # set approach (frequentist / bayesian)
-    st.subheader("3. Set approaches")
+    st.subheader("3. Set Approaches")
     st.radio(
         label="Choose a approach (Frequentist is recommended)",
         options=["Frequentist", "Bayesian"],
