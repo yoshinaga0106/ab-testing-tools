@@ -14,9 +14,9 @@ def main() -> None:
     st.write("Validate the result of AB test using testing of statistical hypothesis.")
 
     # testing methods
-    st.subheader("1. Testing methods")
+    st.subheader("1. Testing family")
     selected_filters = st.selectbox(
-        "Select which testing methods to enable",
+        "Select which testing family to enable",
         ["The differece of ratio", "The differece of average value"],
     )
 
