@@ -25,7 +25,7 @@ def main() -> None:
     menu_list = [
         "I want to stay here: No transition",
         "I want to calculate sample size: Moved to Sample Size Calculator",
-        "I want to validate an A/B testing: Moved to A/B Test Validator",
+        "I want to validate an A/B testing: Moved to A/B Test Calculator",
     ]
     page_names_to_funcs = dict(zip(menu_list, get_page_names(HOME_SCRIPT_NAME)))
     choose = st.selectbox(
