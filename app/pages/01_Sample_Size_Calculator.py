@@ -13,7 +13,7 @@ st.set_page_config(
 
 def get_required_inputs(selected_filters: str):
 
-    if selected_filters == "The differece of average value":
+    if selected_filters == "The difference of average value":
 
         # default values
         default_values = AvgData().get_default_inputs()
@@ -26,7 +26,7 @@ def get_required_inputs(selected_filters: str):
 
         res = AvgData(avg=avg, var=var, sample=sample, group=group).get_default_inputs()
 
-    elif selected_filters == "The differece of ratio":
+    elif selected_filters == "The difference of ratio":
 
         # default values
         default_values = RatioData().get_default_inputs()
@@ -83,7 +83,7 @@ def get_table(selected_filters: str, mandatories: dict, options: dict):
 
     for lift in options.get("lifts"):
 
-        if selected_filters == "The differece of average value":
+        if selected_filters == "The difference of average value":
 
             ssa = SampleSizeAvg(
                 avg=mandatories.get("avg"),
@@ -108,7 +108,7 @@ def get_table(selected_filters: str, mandatories: dict, options: dict):
                 ignore_index=True,
             )
 
-        elif selected_filters == "The differece of ratio":
+        elif selected_filters == "The difference of ratio":
 
             ssr = SampleSizeRatio(
                 rate=mandatories.get("rate"),
