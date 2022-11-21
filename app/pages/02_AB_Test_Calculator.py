@@ -3,7 +3,7 @@ import streamlit as st
 
 # web icon
 st.set_page_config(
-    page_title="AB Test Validator",
+    page_title="AB Test Calculator",
     page_icon="bar_chart",
 )
 
