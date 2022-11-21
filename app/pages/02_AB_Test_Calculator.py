@@ -211,7 +211,7 @@ def main() -> None:
 
     # set approach (frequentist / bayesian)
     st.subheader("3. Set Approaches")
-    st.radio(
+    approach = st.radio(
         label="Choose a approach (Frequentist is recommended)",
         options=["Frequentist", "Bayesian"],
     )
