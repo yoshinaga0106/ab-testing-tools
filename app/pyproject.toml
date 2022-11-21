@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "abtest"
+version = "0.1.0"
+description = ""
+authors = ["yoshinaga0106 <t.yoshinaga0106@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit = "^1.15.0"
+statsmodels = "^0.13.5"
+scipy = "^1.9.3"
+streamlit-authenticator = "^0.2.1"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^5.0.4"
+black = "^22.10.0"
+isort = "^5.10.1"
+mypy = "^0.991"
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.black]
+target-version = ['py310']
+line-length = 120
+
+[tool.flake8]
+max-line-length = 120
+max-complexity = 18
+ignore = "E203,E266,W503,"
+
+[tool.mypy]
+python_version = "3.10"
+no_strict_optional = true
+ignore_missing_imports = true
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests",]
+filterwarnings = ["ignore::DeprecationWarning",]

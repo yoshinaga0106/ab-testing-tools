@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  streamlit:
+    build: ./app
+    networks:
+      shared-nw:
+    volumes:
+      - ./app:/app
+    ports:
+      - 8501:8501
+    command: poetry run streamlit run ./app/app.py
+  nginx:
+    build: ./nginx
+    networks:
+      shared-nw:
+    ports:
+      - 443:443
+networks:
+  shared-nw:
+    driver: bridge
