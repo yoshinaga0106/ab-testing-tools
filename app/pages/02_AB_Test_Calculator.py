@@ -68,7 +68,6 @@ def get_table(tbl: pd.DataFrame, selected_filters: str, second_filters: str, opt
                     t=pair.get("t"),
                 )
                 res_itr = {"pair": pair.get("pair"), **ins.check_significance()}
-                st.write(res_itr)
                 res = res.append(res_itr, ignore_index=True)
 
         elif second_filters == "z-test":
@@ -92,7 +91,6 @@ def get_table(tbl: pd.DataFrame, selected_filters: str, second_filters: str, opt
                     no=pair.get("no"),
                 )
                 res_itr = {"pair": pair.get("pair"), **ins.check_significance()}
-                st.write(res_itr)
                 res = res.append(res_itr, ignore_index=True)
 
         elif second_filters == "chi-squire test":
