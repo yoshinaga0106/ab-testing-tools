@@ -21,7 +21,7 @@ class AvgData(BaseData):
     sample: float = 10000.0
 
     def get_default_inputs(self):
-        return {"avg": self.avg, "var": self.var, "sample": self.sample, "group": self.group}
+        return {"avg": self.avg, "var": self.var, "sample": self.sample}
 
 
 @dataclass
@@ -30,4 +30,4 @@ class RatioData(BaseData):
     sample: float = 10000.0
 
     def get_default_inputs(self):
-        return {"rate": self.rate, "sample": self.sample, "group": self.group}
+        return {"rate": self.rate, "sample": self.sample}
