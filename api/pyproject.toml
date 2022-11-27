@@ -7,9 +7,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+statsmodels = "0.13.5"
 fastapi = "^0.87.0"
 uvicorn = "^0.20.0"
-
 
 [build-system]
 requires = ["poetry-core"]
