@@ -15,8 +15,7 @@ class SampleSizeBase(BaseModel):
     power: float = Field(..., ge = 0.0, le = 1.0)
     group: int = Field(..., ge = 0)
     lift: float = Field(..., ge = 0.0)
-    # TODO str -> Alternative
-    alternative: str
+    alternative: Alternative
 
 
 class SampleSizeAvg(SampleSizeBase):
@@ -31,12 +30,12 @@ async def root():
 
 @app.post("/stats/avg")
 async def calc_sample_size(params: SampleSizeAvg):
-    # OK (alternative: str case): requests.post("http://127.0.0.1:8000/stats/avg", json = {"avg": 1.0, "var": 1.0, "alpha": 0.05, "power": 0.8, "group": 2, "lift": 0.03, "alternative": "two-sided"})
+    # OK: requests.post("http://127.0.0.1:8000/stats/avg", json = {"avg": 1.0, "var": 1.0, "alpha": 0.05, "power": 0.8, "group": 2, "lift": 0.03, "alternative": "two-sided"})
     effect_size = params.lift * params.avg / sqrt(params.var)
     sample_size = tt_ind_solve_power(
         effect_size = effect_size,
         alpha = params.alpha,
         power = params.power,
-        alternative = params.alternative
+        alternative = params.alternative.value
     )
     return {"params": params, "sample size": sample_size}
