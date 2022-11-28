@@ -10,6 +10,7 @@ python = "^3.9"
 statsmodels = "0.13.5"
 fastapi = "^0.87.0"
 uvicorn = "^0.20.0"
+requests = "^2.28.1"
 
 [build-system]
 requires = ["poetry-core"]
